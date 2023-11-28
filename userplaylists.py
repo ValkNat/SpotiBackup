@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
 import output
@@ -10,8 +13,12 @@ def scrape_spotify_playlists(user_url):
     # Load the page
     driver.get(user_url)
 
-    # Wait for the page to load (adjust the time based on your needs)
-    driver.implicitly_wait(15)
+    # Use WebDriverWait to wait for the playlists to load
+    wait = WebDriverWait(driver, 15)  # Adjust the timeout based on your needs
+
+    # Wait for the playlists to be present in the page
+    playlists_present = EC.presence_of_element_located((By.CSS_SELECTOR, 'a[href^="/playlist/"]'))
+    wait.until(playlists_present)
 
     # Get the page source after it has been fully loaded
     page_source = driver.page_source
