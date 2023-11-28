@@ -5,12 +5,8 @@ This project utilizes SpotiPy and BeautifulSoup4 to compile a list of all of you
 
 **USAGE**
 
-**To use this script (in it's current state, this will be changed soon), you will need to edit the script slightly.
-**
-
 Steps:
 1. Head over to https://developer.spotify.com and create a developer account (and create a new app in the dashboard).
 2. From the settings of your new developer app, find and store your CLIENT_ID and CLIENT_SECRET.
-3. In main.py, find the CLIENT_ID and CLIENT_SECRET variables and input your information.
-4. From there, just run main.py, and paste in your playlist link: (ex: https://open.spotify.com/user/YOUR_USERNAME_HERE/playlists)
+4. From there, just run main.py, and paste in your playlist link: (ex: https://open.spotify.com/user/YOUR_USERNAME_HERE/playlists) alongside your CLIENT_ID and CLIENT_SECRET
 
