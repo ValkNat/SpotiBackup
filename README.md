@@ -10,3 +10,5 @@ Steps:
 2. From the settings of your new developer app, find and store your CLIENT_ID and CLIENT_SECRET.
 4. From there, just run main.py, and paste in your playlist link: (ex: https://open.spotify.com/user/YOUR_USERNAME_HERE/playlists) alongside your CLIENT_ID and CLIENT_SECRET
 
+
+**WARNING: Please do not overuse the Spotify API. Repeated usages of this script (especially if you have a large library) will result in API timeouts and decreased functionality.**
