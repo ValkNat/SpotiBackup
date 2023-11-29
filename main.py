@@ -59,7 +59,6 @@ def runProgram(user_url):
         output.output_to_file(song_list)
 
 
-
 if __name__ == '__main__':
     app.mainloop()
     
