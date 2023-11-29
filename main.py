@@ -26,6 +26,19 @@ user_profile_url_label.pack()
 user_profile_url_entry = tk.Entry(app)
 user_profile_url_entry.pack()
 
+#new section allows users to decide between outputting to csv or txt - this is just tkinter config stuff
+output_options = ['csv', 'txt']
+selected_option = tk.StringVar(app)
+selected_option.set(output_options[0])
+
+#creating the actual tkinter widgets for the new section (both the label and dropdown menu)
+dropdown_label = tk.Label(app, text="Output to CSV or txt:")
+dropdown_label.pack()
+
+dropdown_menu = tk.OptionMenu(app, selected_option, *output_options)
+dropdown_menu.pack()
+
+
 start_button = tk.Button(app, text="Start", command=lambda: runProgram(user_profile_url_entry.get()))
 start_button.pack()
 
@@ -55,8 +68,13 @@ def runProgram(user_url):
     playlist_dictionary = userplaylists.scrape_spotify_playlists(user_url)
     for playlist_name, playlist_url in playlist_dictionary.items():
         song_list = get_playlist_tracks(playlist_url, SpotiPySetup())
-        output.write_playlist_name_to_file(playlist_name)
-        output.output_to_file(song_list)
+
+        if (selected_option.get() == 'txt'):
+            output.write_playlist_name_to_file(playlist_name)
+            output.output_to_file(song_list)
+
+        else:
+            output.write_to_csv(song_list)
 
 
 if __name__ == '__main__':
